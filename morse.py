@@ -3,7 +3,7 @@
 # Author        : Chengtao Yao
 # Email         : chengtao.yao@outlook.com
 # Created Time  : 2021/10/4 11:41
-# Description   : 
+# Description   : morse code transformer(only for string), version 1.0
 
 alphabet_to_morse = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
                      'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
