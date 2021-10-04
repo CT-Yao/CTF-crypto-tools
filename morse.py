@@ -49,7 +49,14 @@ def morse_decode(morse_string):
     return " ".join(text_string)
 
 
-morse_code = morse_encode('FLAG MORSE ^')
-print(morse_code)
-text = morse_decode(morse_code)
-print(text)
+def test_api():
+    string = 'MORSE FLAG ^s'
+    print("orign text: {}".format(string))
+    morse_code = morse_encode(string)
+    print("morse code: {}".format(morse_code))
+    text = morse_decode(morse_code)
+    print("decoded text: {}".format(text))
+
+
+if __name__ == "__main__":
+    test_api()
