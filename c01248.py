@@ -15,8 +15,9 @@ def c01248_decode(ciphertext):
         if index < 1 or index > 26:
             print("[Error] number out of alphabet range.")
             return None
-        plaintext += alphabet[index-1]
+        plaintext += alphabet[index - 1]
     return plaintext
+
 
 def c01248_encode(plaintext):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -26,7 +27,7 @@ def c01248_encode(plaintext):
         if letter not in alphabet:
             print("[Error] letter of plaintext out of range.")
             return None
-        letters_to_num.append(alphabet.index(letter)+1)
+        letters_to_num.append(alphabet.index(letter) + 1)
 
     ciphertext = ""
     for num in letters_to_num:
@@ -50,6 +51,7 @@ def module_test_api():
     print(plaintext)
     ciphertext = c01248_encode(plaintext)
     print(ciphertext)
+
 
 if __name__ == "__main__":
     module_test_api()
