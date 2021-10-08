@@ -25,9 +25,9 @@ def fence_decode(ciphertext, key: int):
     return "".join(plaintext)
 
 
-def blasting(ciphertext, output_file, len_range=None):
+def fence_brute(ciphertext, output_file, len_range=None):
     if len_range is None:
-        key_range = list(range(2, len(ciphertext)//2+1))
+        key_range = list(range(2, len(ciphertext)))
 
     f = open(output_file, 'a')
 
@@ -50,7 +50,7 @@ def module_test_api():
     print(plaintext)
 
     output_file = "./output_plaintext/fence_blasting_plaintext.txt"
-    blasting(ciphertext, output_file)
+    fence_brute(ciphertext, output_file)
 
 
 if __name__ == "__main__":
