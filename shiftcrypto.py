@@ -72,7 +72,7 @@ def module_test_api():
     plaintext = shift_decrypt(ciphertext, key)
     print(plaintext)
 
-    output_file = 'shift_blasting_plaintext.txt'
+    output_file = './output_plaintext/shift_blasting_plaintext.txt'
     blasting(ciphertext, output_file, len_range=list(range(2,9)))
 
 if __name__ == "__main__":
