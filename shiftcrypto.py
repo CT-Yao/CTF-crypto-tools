@@ -52,7 +52,7 @@ def blasting_task(ciphertext, key, f):
         f.write(key + "\t" + plaintext + "\n")
 
 
-def blasting(ciphertext, output_file, len_range=None):
+def shift_brute(ciphertext, output_file, len_range=None):
     if len_range is None:
         len_range = list(range(2, min(len(ciphertext)), 9))
 
@@ -73,7 +73,7 @@ def module_test_api():
     print(plaintext)
 
     output_file = './output_plaintext/shift_blasting_plaintext.txt'
-    blasting(ciphertext, output_file, len_range=list(range(2,9)))
+    shift_brute(ciphertext, output_file, len_range=list(range(2,9)))
 
 if __name__ == "__main__":
     module_test_api()
