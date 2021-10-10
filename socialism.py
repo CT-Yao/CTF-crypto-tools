@@ -36,7 +36,6 @@ def socialism_encode(plaintext):
 
 def socialism_decode(ciphertext):
     n_lst = [key_lst.index(ciphertext[x:x + 2]) for x in range(0, len(ciphertext), 2)]
-    print(n_lst)
     hex_lst = []
     i = 0
     while i < len(n_lst):
