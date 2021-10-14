@@ -27,5 +27,6 @@ def module_test_api():
     p = atbash_encode(c)
     print(p)
 
+
 if __name__ == "__main__":
     module_test_api()

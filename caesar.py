@@ -6,6 +6,7 @@
 # Description   :
 
 def caesar_encrypt(plaintext, key):
+    key = int(key)
     ciphertext = ""
     for i in plaintext:
         ciphertext += chr((ord(i) + key) % 128)
@@ -13,6 +14,7 @@ def caesar_encrypt(plaintext, key):
 
 
 def caesar_decrypt(ciphertext, key):
+    key = int(key)
     plaintext = ""
     for i in ciphertext:
         # print(i, ord(i), ord(i)-key, chr((ord(i)-key) % 128))
@@ -41,6 +43,7 @@ def rot13(ciphertext):
 
 
 def alphabet_caesar_encrypt(ciphertext, key):
+    key = int(key)
     plaintext = ""
     for i in ciphertext:
         if ord(i) in range(ord('A'), ord('Z') + 1):
@@ -53,6 +56,7 @@ def alphabet_caesar_encrypt(ciphertext, key):
 
 
 def alphabet_caesar_decrypt(plaintext, key):
+    key = int(key)
     ciphertext = ""
     for i in plaintext:
         if ord(i) in range(ord('A'), ord('Z') + 1):

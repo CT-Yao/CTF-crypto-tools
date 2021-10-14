@@ -4,6 +4,7 @@
 # Email         : chengtao.yao@outlook.com
 # Created Time  : 2021/10/10 0:07
 # Description   :
+
 import random
 
 key_lst = ['富强', '民主', '文明', '和谐',
