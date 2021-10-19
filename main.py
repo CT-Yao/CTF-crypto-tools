@@ -9,6 +9,9 @@
 import getopt
 import sys
 
+import atbash
+import c01248
+import caesar
 import encoder
 import morse
 
@@ -36,6 +39,7 @@ def usage():
 input_text = None
 encode_mode = None
 separator = None
+key = None
 
 encoder_dict = {'t2num': encoder.text_to_num,
                 'num2t': encoder.num_to_text,
@@ -51,14 +55,31 @@ encoder_dict = {'t2num': encoder.text_to_num,
                 'b852t': encoder.base85_to_text,
 
                 't2morse': morse.morse_encode,
-                'morse2t': morse.morse_decode}
+                'morse2t': morse.morse_decode,
+
+                't2atbash': atbash.atbash_encode,
+                'atbash2t': atbash.atbash_encode,
+
+                't2c01248': c01248.c01248_encode,
+                'c012482t': c01248.c01248_decode,
+
+                'rot13': caesar.rot13,
+
+                'caeserbrute': caesar.caesar_brute,
+                }
 
 encoder_sep_dict = {'t2ascii': encoder.text_to_ascii,
                     'ascii2t': encoder.ascii_to_text}
 
+encoder_key_dict = {'t2caeser': caesar.caesar_encrypt,
+                    'caeser2t': caesar.caesar_decrypt,
+                    't2a-caeser': caesar.alphabet_caesar_encrypt,
+                    'a-caeser2t': caesar.alphabet_caesar_decrypt}
+
 try:
-    opts, args = getopt.getopt(sys.argv[1:], 'hi:m:s:', ['help', 'input', 'mode', 'sep'])
+    opts, args = getopt.getopt(sys.argv[1:], 'hi:m:s:k:', ['help', 'input', 'mode', 'sep', 'key'])
 except getopt.GetoptError as e:
+    opts = None
     print('[Error] Options error! {}'.format(e))
     usage()
     exit()
@@ -73,6 +94,8 @@ for o, a in opts:
         encode_mode = a
     elif o in ('-s', '--sep'):
         separator = a
+    elif o in ('-k', '--key'):
+        key = a
 
 if input_text is None or input_text == '':
     print("[Error] Please input text!")
@@ -87,6 +110,8 @@ try:
         res = encoder_dict[encode_mode](input_text)
     elif encode_mode in encoder_sep_dict:
         res = encoder_sep_dict[encode_mode](input_text, separator)
+    elif encode_mode in encoder_key_dict:
+        res = encoder_key_dict[encode_mode](input_text, key)
     else:
         print('[Error] Wrong mode!')
         exit()
@@ -94,5 +119,5 @@ except Exception as e:
     print(e)
     exit()
 
-
-print(res)
+if res is not None:
+    print(res)
